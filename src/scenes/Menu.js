@@ -57,9 +57,7 @@ export class Menu extends Phaser.Scene {
 		this.#hoverAnimationText(this.start)
 		this.#hoverAnimationText(this.options)
 
-		this.#onClick(this.start, () =>
-			this.#runScene(Glob.SceneKeys.game.overworld)
-		)
+		this.#onClick(this.start, () => this.#runScene(Glob.SceneKeys.game.world))
 		this.#onClick(this.options, () => {
 			// TODO -> this.#runScene(Glob.SceneKeys.game.options)
 		})
