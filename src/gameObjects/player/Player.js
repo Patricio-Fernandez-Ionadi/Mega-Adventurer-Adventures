@@ -67,7 +67,7 @@ export class Player extends Phaser.GameObjects.Sprite {
 				name: 'fall',
 				whenIsSet: () => {},
 				inputControl: (input) => {
-					if (this.#onFloor()) this.setState('idle')
+					if (this.onfloor) this.setState('idle')
 				},
 			},
 			// : { name: '' },
@@ -132,6 +132,8 @@ export class Player extends Phaser.GameObjects.Sprite {
 		this.#handleFacing()
 		this.#updateSprite()
 		this.#updateHitArea()
+		this.onfloor = this.entity.body.velocity.y === 0
+		this.isJumping = !this.onfloor
 
 		// States
 		this.#handleInputs()
@@ -154,10 +156,6 @@ export class Player extends Phaser.GameObjects.Sprite {
 	}
 
 	// Utils
-	#onFloor() {
-		return this.entity.body.velocity.y === 0
-	}
-
 	#createBounding({ name, pos, size, color, alpha }) {
 		if (typeof size === 'number') {
 			this[name] = this.scene.add.rectangle(
