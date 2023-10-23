@@ -1,0 +1,892 @@
+{
+	"anims": [
+		{
+			"key": "swim-stand",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-water-tread-00-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-water-tread-01-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-water-tread-02-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-water-tread-03-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-water-tread-04-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-water-tread-05-1.3"
+				}
+			]
+		},
+		{
+			"key": "swim",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-swim-00-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-swim-01-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-swim-02-1.3"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-swim-03-1.3"
+				}
+			]
+		},
+		{
+			"key": "get-hurt",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-hurt-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-hurt-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-hurt-02"
+				}
+			]
+		},
+		{
+			"key": "slide-wall",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-slide-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-slide-01"
+				}
+			]
+		},
+		{
+			"key": "faint",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-die-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-die-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-die-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-die-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-die-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-die-05"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-die-06"
+				}
+			]
+		},
+		{
+			"key": "atk4-hand",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-punch-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-punch-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-punch-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-punch-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-punch-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-punch-05"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-punch-06"
+				}
+			]
+		},
+		{
+			"key": "atk3-hand",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch3-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch3-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch3-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch3-03"
+				}
+			]
+		},
+		{
+			"key": "atk3-air-weapon_end",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack-3-weapon-end-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack-3-weapon-end-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack-3-weapon-end-02"
+				}
+			]
+		},
+		{
+			"key": "atk3-air-weapon_loop",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack3-weapon-loop-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack3-weapon-loop-01"
+				}
+			]
+		},
+		{
+			"key": "atk3-weapon",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack3-weapon-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack3-weapon-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack3-weapon-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack3-weapon-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack3-weapon-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack3-weapon-05"
+				}
+			]
+		},
+		{
+			"key": "atk2-hand",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch2-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch2-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch2-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch2-03"
+				}
+			]
+		},
+		{
+			"key": "atk2-kick",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick2-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick2-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick2-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick2-03"
+				}
+			]
+		},
+		{
+			"key": "atk2-air-weapon",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack2-weapon-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack2-weapon-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack2-weapon-02"
+				}
+			]
+		},
+		{
+			"key": "atk2-weapon",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack2-weapon-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack2-weapon-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack2-weapon-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack2-weapon-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack2-weapon-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack2-weapon-05"
+				}
+			]
+		},
+		{
+			"key": "atk1-magic",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack-magic-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack-magic-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack-magic-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack-magic-03"
+				}
+			]
+		},
+		{
+			"key": "atk1-hand",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch1-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch1-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch1-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch1-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-punch1-04"
+				}
+			]
+		},
+		{
+			"key": "atk1-kick",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick1-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick1-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick1-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-kick1-03"
+				}
+			]
+		},
+		{
+			"key": "atk1-air-weapon",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack1-weapon-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack1-weapon-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack1-weapon-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-air-attack1-weapon-03"
+				}
+			]
+		},
+		{
+			"key": "atk1-weapon",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack1-weapon-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack1-weapon-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack1-weapon-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack1-weapon-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-attack1-weapon-04"
+				}
+			]
+		},
+		{
+			"key": "climb",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-ladder-climb-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-ladder-climb-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-ladder-climb-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-ladder-climb-03"
+				}
+			]
+		},
+		{
+			"key": "slide-end",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-end-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-end-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-end-02"
+				}
+			]
+		},
+		{
+			"key": "slide-loop",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-slide-loop-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-slide-loop-01"
+				}
+			]
+		},
+		{
+			"key": "get-up",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-get-up-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-get-up-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-get-up-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-get-up-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-get-up-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-get-up-05"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-get-up-06"
+				}
+			]
+		},
+		{
+			"key": "knock-down",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-knock-dwn-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-knock-dwn-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-knock-dwn-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-knock-dwn-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-knock-dwn-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-knock-dwn-05"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-knock-dwn-06"
+				}
+			]
+		},
+		{
+			"key": "sprint",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-sprint-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-sprint-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-sprint-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-sprint-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-sprint-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-sprint-05"
+				}
+			]
+		},
+		{
+			"key": "run-wall",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-run-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-run-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-run-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-run-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-run-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-wall-run-05"
+				}
+			]
+		},
+		{
+			"key": "run-weapon",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-weapon-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-weapon-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-weapon-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-weapon-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-weapon-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-weapon-05"
+				}
+			]
+		},
+		{
+			"key": "run",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-run-05"
+				}
+			]
+		},
+		{
+			"key": "walk",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-walk-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-walk-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-walk-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-walk-03"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-walk-04"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-walk-05"
+				}
+			]
+		},
+		{
+			"key": "fall",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-fall-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-fall-01"
+				}
+			]
+		},
+		{
+			"key": "drop-kick",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-drop-kick-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-drop-kick-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-drop-kick-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-drop-kick-03"
+				}
+			]
+		},
+		{
+			"key": "jump",
+			"type": "frames",
+			"repeat": 0,
+			"frameRate": 5,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-jump-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-jump-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-jump-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-jump-03"
+				}
+			]
+		},
+		{
+			"key": "idle-weapon",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-weapon-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-weapon-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-weapon-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-weapon-03"
+				}
+			]
+		},
+		{
+			"key": "idle",
+			"type": "frames",
+			"repeat": -1,
+			"frameRate": 12,
+			"frames": [
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-00"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-01"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-02"
+				},
+				{
+					"key": "adventurer",
+					"frame": "adventurer-idle-03"
+				}
+			]
+		}
+	]
+}
