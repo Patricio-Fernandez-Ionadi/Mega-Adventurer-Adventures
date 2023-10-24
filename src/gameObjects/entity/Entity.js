@@ -8,7 +8,11 @@ export class Entity extends Phaser.GameObjects.Sprite {
 			physics: (elem) => this.#addPhysics(elem),
 			toScene: (name) => (this.scene[name] = this),
 		}
-		this.currentState = ''
+		this.currentState = {
+			name: '',
+			whenIsSet: () => {},
+			inputControl: (input) => {},
+		}
 	}
 
 	update() {
@@ -70,9 +74,7 @@ export class Entity extends Phaser.GameObjects.Sprite {
 	}
 
 	#handleInputs() {
-		this.currentState.inputControl
-			? this.currentState.inputControl(this.scene.cursors)
-			: null
+		this.currentState.inputControl(this.scene.cursors)
 	}
 	#handleAnimations() {
 		if (this.animations[0]) {
@@ -100,14 +102,23 @@ export class Entity extends Phaser.GameObjects.Sprite {
 		this.scene.physics.add.existing(elem)
 		elem.body.setCollideWorldBounds(true)
 	}
+
 	#updateEntity() {
 		// ------------
-		this.scene.cursors.right.isDown
-			? (this.facing = false)
-			: this.scene.cursors.left.isDown
-			? (this.facing = true)
-			: null
+		if (this.scene.cursors.right.isDown) this.facing = false
+		if (this.scene.cursors.left.isDown) this.facing = true
 		this.sprite.setFlipX(this.facing)
+
+		// ---------- WORK IN PROGRESS ----------
+		console.log(this.speed)
+		if (this.speed) {
+			if (this.facing) {
+				if (this.speed > 0) this.speed = -this.speed
+			} else if (!this.facing) {
+				if (this.speed < 0) this.speed = +this.speed
+			}
+		}
+		// ---------- WORK IN PROGRESS ----------
 
 		// ------------
 		this.onfloor = this.entity.body.velocity.y === 0

@@ -167,8 +167,8 @@
 		{
 			"key": "atk3-hand",
 			"type": "frames",
-			"repeat": -1,
-			"frameRate": 12,
+			"repeat": 0,
+			"frameRate": 8,
 			"frames": [
 				{
 					"key": "adventurer",
@@ -259,8 +259,8 @@
 		{
 			"key": "atk2-hand",
 			"type": "frames",
-			"repeat": -1,
-			"frameRate": 12,
+			"repeat": 0,
+			"frameRate": 8,
 			"frames": [
 				{
 					"key": "adventurer",
@@ -383,8 +383,8 @@
 		{
 			"key": "atk1-hand",
 			"type": "frames",
-			"repeat": -1,
-			"frameRate": 12,
+			"repeat": 0,
+			"frameRate": 8,
 			"frames": [
 				{
 					"key": "adventurer",
@@ -796,7 +796,7 @@
 			"key": "drop-kick",
 			"type": "frames",
 			"repeat": -1,
-			"frameRate": 12,
+			"frameRate": 8,
 			"frames": [
 				{
 					"key": "adventurer",

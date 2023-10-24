@@ -39,17 +39,15 @@ export class OverWorld extends Phaser.Scene {
 	#createKeyboardInputs() {
 		this.cursors = this.input.keyboard.createCursorKeys()
 
-		this.cursors.Q = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.Q
-		)
-		this.cursors.W = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.W
-		)
-		this.cursors.E = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.E
-		)
-		this.cursors.TAB = this.input.keyboard.addKey(
-			Phaser.Input.Keyboard.KeyCodes.TAB
-		)
+		this.cursors = {
+			...this.cursors,
+			q: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q),
+			w: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
+			e: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E),
+			tab: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TAB),
+			space: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
+			shift: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT),
+			alt: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ALT),
+		}
 	}
 }
