@@ -22,8 +22,10 @@ export class Entity extends Phaser.GameObjects.Sprite {
 		this.currentState.whenIsSet()
 	}
 
-	createBounding({ name, position, x, y, width, height, size, color, alpha }) {
-		let xToApply, yToApply, wToApply, hToApply, nameToApply
+	createBounding(config) {
+		const { name, position, x, y, width, height, size, color, alpha } = config
+
+		let xToApply, yToApply, wToApply, hToApply
 
 		if (position !== undefined) {
 			xToApply = position.x
