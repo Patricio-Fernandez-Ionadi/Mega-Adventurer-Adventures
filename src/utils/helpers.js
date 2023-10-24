@@ -1,8 +1,8 @@
 /**
  * @param {number} size to be used in font
  *
- * returns an object to be used adding text on a scene
+ * returns an object with the font size setted ready to be used in texts
  *
- * @returns Object {fontSize}
+ * @returns Object {fontSize: value}
  */
 export const fz = (size) => ({ fontSize: size })

@@ -18,9 +18,9 @@ export class Bootloader extends Phaser.Scene {
 
 	create() {
 		// prod
-		this.scene.start(SceneKeys.game.menu)
+		// this.scene.start(SceneKeys.game.menu)
 		// ------------------------------------------
 		// dev
-		// this.scene.start(SceneKeys.game.world)
+		this.scene.start(SceneKeys.game.world)
 	}
 }

@@ -716,7 +716,7 @@
 			"key": "run",
 			"type": "frames",
 			"repeat": -1,
-			"frameRate": 12,
+			"frameRate": 9,
 			"frames": [
 				{
 					"key": "adventurer",
@@ -780,7 +780,7 @@
 			"key": "fall",
 			"type": "frames",
 			"repeat": -1,
-			"frameRate": 12,
+			"frameRate": 8,
 			"frames": [
 				{
 					"key": "adventurer",
@@ -868,7 +868,7 @@
 			"key": "idle",
 			"type": "frames",
 			"repeat": -1,
-			"frameRate": 12,
+			"frameRate": 8,
 			"frames": [
 				{
 					"key": "adventurer",

@@ -23,6 +23,7 @@ const config = {
 		arcade: {
 			gravity: GameInfo.physics.gravity,
 			debug: true,
+			// debug: false,
 		},
 	},
 	banner: {
