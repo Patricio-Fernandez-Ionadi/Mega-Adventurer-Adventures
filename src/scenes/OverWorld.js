@@ -24,9 +24,9 @@ export class OverWorld extends Phaser.Scene {
 	}
 
 	addFloor() {
-		this.floor = this.add
-			.rectangle(0, ScreenSize.height - 50, ScreenSize.width, 50, 0xff0000, 1)
-			.setOrigin(0)
+		this.floor = this.add.rectangle(0, ScreenSize.height - 50, ScreenSize.width, 50, 0xff0000, 1)
+			
+		this.floor.setOrigin(0)
 
 		this.physics.add.existing(this.floor)
 		this.floor.body.setCollideWorldBounds(true)

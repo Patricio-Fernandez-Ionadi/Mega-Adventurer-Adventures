@@ -3,7 +3,6 @@ import { SceneKeys, ScreenSize, fz } from '../utils/index.js'
 import * as Glob from '../utils'
 
 export class Menu extends Phaser.Scene {
-	preload() {}
 
 	create() {
 		this.#createBackground({
@@ -68,7 +67,11 @@ export class Menu extends Phaser.Scene {
 		this.menuBackground = this.add.image(0, 0, image)
 
 		if (origins !== undefined) {
-			this.menuBackground.setOrigin(origins.x || 0.5, origins.y || 0.5)
+			if (origins === 'object'){
+				this.menuBackground.setOrigin(origins.x, origins.y)
+			} else if (origins === 'number') {
+				this.menuBackground.setOrigin(origins, origins)
+			}
 		}
 
 		if (scale !== undefined) {

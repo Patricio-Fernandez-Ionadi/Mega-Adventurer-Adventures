@@ -180,12 +180,7 @@ export class Player extends Entity {
 					this.delay(600, () => this.setState(_P.s.idle))
 				},
 				inputControl: () => {},
-			},
-			// : {
-			// name: '',
-			// whenIsSet: () => {},
-			// inputControl: (input) => {}
-			// },
+			}
 		}
 		this.create()
 	}
