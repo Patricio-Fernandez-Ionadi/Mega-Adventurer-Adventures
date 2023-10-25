@@ -11,8 +11,8 @@ const config = {
 	height: ScreenSize.height,
 	physics: {
 		arcade: {
-			debug: true,
-			// debug: false,
+			debug: false,
+			// debug: true,
 			gravity: GameInfo.physics.gravity,
 		},
 		default: 'arcade',
