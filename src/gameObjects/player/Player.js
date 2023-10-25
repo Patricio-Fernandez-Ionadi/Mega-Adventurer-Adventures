@@ -21,75 +21,78 @@ export class Player extends Entity {
 		super(scene, pos)
 		this.width = 32
 		this.height = 48
-
 		this.states = {
-			// ---------- WORK IN PROGRESS ----------
 			idle: {
 				name: 'idle',
-				whenIsSet: () => {
-					this.stop()
-				},
+				whenIsSet: () => this.stop(),
 				inputControl: (input) => {
-					if (input.right.isDown || input.left.isDown) {
-						this.setState('walk')
-						// if (input.shift.isDown) {
-						// 	this.setState('sprint')
-						// } else if (input.alt.isDown) {
-						// } else {
-						// 	this.setState('run')
-						// }
-					} else if (input.up.isDown) this.setState('jump')
-					else if (input.q.isDown) this.setState('atk1hand')
-					else if (input.w.isDown) this.setState('atk2hand')
-					else if (input.e.isDown) this.setState('atk3hand')
+					this.run(input)
+					this.attack(input)
+					if (input.up.isDown) this.setState('jump')
 				},
 			},
 			walk: {
 				name: 'walk',
-				whenIsSet: () => {
-					this.slowDown(40)
-				},
+				key: 'alt',
+				currentFacing: this.facing,
+				whenIsSet: () => this.slowDown(40),
 				inputControl: (input) => {
-					if (input.right.isUp && input.left.isUp) this.setState('idle')
+					let thisState = this.states.walk
+
+					this.stand(input)
+					this.attack(input)
+
+					// change state action
+					if (input.alt.isUp) {
+						this.run(input)
+					}
+
+					this.toggleStateDirection(thisState)
 				},
 			},
 			run: {
 				name: 'run',
-				whenIsSet: () => {
-					if (this.facing) {
-						this.entity.body.setVelocityX(-this.speed)
-					} else if (!this.facing) {
-						this.entity.body.setVelocityX(this.speed)
-					}
-				},
+				currentFacing: this.facing,
+				whenIsSet: () => this.toggleSpeed(),
 				inputControl: (input) => {
-					if (input.right.isUp && input.left.isUp) this.setState('idle')
-					else if (input.down.isDown) this.setState('slideloop')
+					let thisState = this.states.run
+
+					this.stand(input)
+
+					if (input.down.isDown) this.setState('slideloop')
 					else if (input.up.isDown) this.setState('jump')
-					else if (input.q.isDown) this.setState('atk1hand')
-					else if (input.w.isDown) this.setState('atk2hand')
-					else if (input.e.isDown) this.setState('atk3hand')
-					else if (input.left.isDown) this.setState('run')
-					else if (input.right.isDown) this.setState('run')
+					this.attack(input)
+
+					if (input.alt.isDown) this.setState('walk')
+					if (input.shift.isDown) this.setState('sprint')
+
+					this.toggleStateDirection(thisState)
 				},
 			},
 			sprint: {
 				name: 'sprint',
-				whenIsSet: () => {
-					this.speedUp(100, this.speed)
-				},
-				inputControl: (input) => {},
-			},
-			// ---------- WORK IN PROGRESS ----------
+				key: 'shift',
+				currentFacing: this.facing,
+				whenIsSet: () => this.speedUp(100, this.speed),
+				inputControl: (input) => {
+					let thisState = this.states.sprint
 
+					this.stand(input)
+
+					if (input.shift.isUp) this.run(input)
+					this.attack(input)
+
+					this.toggleStateDirection(thisState)
+				},
+			},
 			jump: {
 				name: 'jump',
 				whenIsSet: () => {
-					let speedWhenJump = this.entity.body.velocity.x
+					let speedWhenJump = this.entity.body.velocity.x * 0.8
 
 					this.stop()
 					this.delay(300, () => {
-						this.entity.body.setVelocityX(speedWhenJump * 0.8)
+						this.entity.body.setVelocityX(speedWhenJump)
 						this.entity.body.setVelocityY(-this.streght)
 					})
 				},
@@ -207,7 +210,6 @@ export class Player extends Entity {
 			// inputControl: (input) => {}
 			// },
 		}
-
 		this.create()
 	}
 	create() {
@@ -216,6 +218,16 @@ export class Player extends Entity {
 		this.add.animation('player_anim')
 		this.add.bounding()
 		this.add.physics(this.entity)
+
+		// VALUES
+
+		this.sprite.setScale(2)
+		this.weight = 100
+		this.streght = 450
+		this.speed = 300
+		this.holdingWeapon = false
+
+		// -------------------
 
 		// Hit area
 		this.hitarea = {
@@ -226,14 +238,6 @@ export class Player extends Entity {
 			// color: 0xffffff,
 		}
 		this.createBounding(this.hitarea)
-		// -------------------
-
-		// VALUES
-		this.sprite.setScale(2)
-		this.weight = 100
-		this.streght = 450
-		this.speed = 300
-		this.holdingWeapon = false
 		// -------------------
 		// -------------------
 
@@ -278,6 +282,44 @@ export class Player extends Entity {
 	delay(time, cb) {
 		this.scene.time.delayedCall(time, cb)
 	}
+	toggleSpeed() {
+		if (this.facing) {
+			this.entity.body.setVelocityX(-this.speed)
+		}
+		if (!this.facing) {
+			this.entity.body.setVelocityX(this.speed)
+		}
+	}
+	toggleStateDirection(state) {
+		/**
+		 * esta condicion checkea que si por algun motivo el jugador tiene ambas direcciones presionadas, cuando una de esas direcciones este levantada y la otra permanezca apretada el jugador tome la direccion que corresponde
+		 *
+		 * para esto usa un valor 'currentFacing' que por defecto es false y chequea que sea igual al valor facing de la entidad, si son iguales la direccion no ha cambiado, pero si son diferentes el jugador debe tomar otra direccion
+		 *
+		 * finalmente se vuelve a setear el estado para que el metodo 'whenIsSet' sea llamado y aplique los cambios necesarios en este caso modificar la velocidad base
+		 */
+		if (state.currentFacing !== this.facing) {
+			this.toggleSpeed()
+			this.setState(state.name)
+
+			state.currentFacing = this.facing
+		}
+	}
+	stand(input) {
+		if (input.right.isUp && input.left.isUp) this.setState('idle')
+	}
+	run(input) {
+		if (input.right.isDown || input.left.isDown) {
+			this.setState('run')
+		}
+	}
+	attack(input) {
+		if (input.q.isDown) this.setState('atk1hand')
+		else if (input.w.isDown) this.setState('atk2hand')
+		else if (input.e.isDown) this.setState('atk3hand')
+	}
+
+	// TODO: crear objeto para reset general
 	resetWeight() {
 		this.weight = 100
 	}

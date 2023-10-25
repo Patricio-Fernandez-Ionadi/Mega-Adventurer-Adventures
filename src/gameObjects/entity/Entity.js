@@ -13,6 +13,8 @@ export class Entity extends Phaser.GameObjects.Sprite {
 			whenIsSet: () => {},
 			inputControl: (input) => {},
 		}
+		this.facing = false
+		this.speed = 0
 	}
 
 	update() {
@@ -105,25 +107,21 @@ export class Entity extends Phaser.GameObjects.Sprite {
 
 	#updateEntity() {
 		// ------------
-		if (this.scene.cursors.right.isDown) this.facing = false
-		if (this.scene.cursors.left.isDown) this.facing = true
-		this.sprite.setFlipX(this.facing)
-
-		// ---------- WORK IN PROGRESS ----------
-		console.log(this.speed)
-		if (this.speed) {
-			if (this.facing) {
-				if (this.speed > 0) this.speed = -this.speed
-			} else if (!this.facing) {
-				if (this.speed < 0) this.speed = +this.speed
-			}
-		}
-		// ---------- WORK IN PROGRESS ----------
+		this.#handleFacingInputs()
 
 		// ------------
 		this.onfloor = this.entity.body.velocity.y === 0
 
 		// ------------
 		this.isJumping = !this.onfloor
+	}
+
+	#handleFacingInputs() {
+		const right = this.scene.cursors.right
+		const left = this.scene.cursors.left
+
+		if (right.isDown && left.isUp) this.facing = false
+		if (left.isDown && right.isUp) this.facing = true
+		this.sprite.setFlipX(this.facing)
 	}
 }
