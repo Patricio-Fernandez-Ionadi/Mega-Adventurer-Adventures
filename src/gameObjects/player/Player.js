@@ -292,12 +292,10 @@ export class Player extends Entity {
 	}
 
 	reset(prop) {
-		if (_P[prop]) {
-			this[prop] = _P[prop]
-		} else {
-			console.error(`${prop} no es un valor del objeto _P`)
-		}
-	}
+		if (_P[prop]) this[prop] = _P[prop]
+   else throw new Error(
+`${prop} no es un valor del objeto _P`)
+}
 
 	// Updates
 	#updateHitArea() {
