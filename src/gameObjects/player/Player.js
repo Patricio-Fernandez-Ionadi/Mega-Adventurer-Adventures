@@ -285,10 +285,10 @@ export class Player extends Entity {
 	}
 
 	reset(prop) {
-		if (c.PlayerBase[prop]) {
-			this[prop] = c.PlayerBase[prop]
+		if (_P[prop]) {
+			this[prop] = _P[prop]
 		} else {
-			console.error(`${prop} no es un valor del objeto c.PlayerBase`)
+			console.error(`${prop} no es un valor del objeto _P`)
 		}
 	}
 

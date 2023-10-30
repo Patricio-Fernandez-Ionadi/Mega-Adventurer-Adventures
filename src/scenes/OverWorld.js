@@ -1,3 +1,4 @@
+import Phaser from 'phaser'
 import { Player } from '../gameObjects/index.js'
 import { ScreenSize, relative } from '../utils/globals.js'
 
@@ -34,14 +35,15 @@ export class OverWorld extends Phaser.Scene {
 	}
 
 	addFloor() {
-		this.floor = this.add
-			.rectangle(
-				0,
-				ScreenSize.height - relative(3),
-				ScreenSize.width,
-				relative(3) // 0xff0000, 1
-			)
-			.setOrigin(0)
+		this.floor = this.add.rectangle(
+			0,
+			ScreenSize.height - relative(3),
+			ScreenSize.width,
+			relative(3)
+			// 0xff0000, 1
+		)
+
+		this.floor.setOrigin(0)
 
 		this.physics.add.existing(this.floor)
 		this.floor.body.setCollideWorldBounds(true)

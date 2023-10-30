@@ -1,3 +1,5 @@
+import Phaser from 'phaser'
+
 export class Entity extends Phaser.GameObjects.Sprite {
 	constructor(scene, pos) {
 		super(scene, pos.x, pos.y)
