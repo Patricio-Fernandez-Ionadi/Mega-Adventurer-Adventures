@@ -1,10 +1,9 @@
+import { Scene } from 'phaser'
 import { SceneKeys, ScreenSize, fz } from '../utils/index.js'
 
 import * as Glob from '../utils'
 
-export class Menu extends Phaser.Scene {
-	preload() {}
-
+export class Menu extends Scene {
 	create() {
 		this.#createBackground({
 			image: 'menu-bg',

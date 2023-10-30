@@ -11,8 +11,8 @@ const config = {
 	height: ScreenSize.height,
 	physics: {
 		arcade: {
-			debug: false,
-			// debug: true,
+			// debug: false,
+			debug: true,
 			gravity: GameInfo.physics.gravity,
 		},
 		default: 'arcade',
@@ -41,5 +41,6 @@ const game = new Phaser.Game(config)
 game.scene.add(SceneKeys.load, Bootloader)
 game.scene.add(SceneKeys.game.menu, Menu)
 game.scene.add(SceneKeys.game.world, OverWorld)
+game.scale.setZoom(2)
 
 game.scene.start(SceneKeys.load)

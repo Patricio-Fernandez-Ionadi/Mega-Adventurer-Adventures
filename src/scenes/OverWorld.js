@@ -1,13 +1,23 @@
 import { Player } from '../gameObjects/index.js'
-import { ScreenSize } from '../utils/globals.js'
+import { ScreenSize, relative } from '../utils/globals.js'
 
+// 5121 collision code
 export class OverWorld extends Phaser.Scene {
 	create() {
 		// World
 		this.physics.world.setBounds(0, 0, ScreenSize.width, ScreenSize.height)
 
+		// Background
+		this.level = {}
+		this.level.background = this.add.image(
+			0,
+			ScreenSize.height / 2,
+			'level-1-bg'
+		)
+		this.level.background.setOrigin(0, 0.85)
+
 		// Entities
-		new Player(this, { x: 50, y: 150 })
+		new Player(this, { x: relative(5), y: relative(10) })
 
 		// Objects
 		this.addFloor()
@@ -25,7 +35,12 @@ export class OverWorld extends Phaser.Scene {
 
 	addFloor() {
 		this.floor = this.add
-			.rectangle(0, ScreenSize.height - 50, ScreenSize.width, 50, 0xff0000, 1)
+			.rectangle(
+				0,
+				ScreenSize.height - relative(3),
+				ScreenSize.width,
+				relative(3) // 0xff0000, 1
+			)
 			.setOrigin(0)
 
 		this.physics.add.existing(this.floor)
