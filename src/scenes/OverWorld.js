@@ -8,20 +8,28 @@ export class OverWorld extends Phaser.Scene {
 		// World
 		this.physics.world.setBounds(0, 0, ScreenSize.width, ScreenSize.height)
 
-		// Background
+		// Levels
 		this.level = {}
-		this.level.background = this.add.image(
-			0,
-			ScreenSize.height / 2,
-			'level-1-bg'
+		this.level.map = this.make.tilemap({ key: 'map' })
+		this.level.tileset = this.level.map.addTilesetImage(
+			'maa_caves_test',
+			'level-1-tiles'
 		)
-		this.level.background.setOrigin(0, 0.85)
+		this.level.platforms = this.level.map.createLayer(
+			'platforms',
+			this.level.tileset,
+			0,
+			-32
+		)
+		// console.log(this.level)
+		// this.physics.add.existing(this.level)
+		this.level.platforms.setCollisionByExclusion(-1, true)
 
 		// Entities
 		new Player(this, { x: relative(5), y: relative(10) })
 
 		// Objects
-		this.addFloor()
+		// this.addFloor()
 
 		// Collisions
 		this.#handleCollisions()
@@ -50,7 +58,7 @@ export class OverWorld extends Phaser.Scene {
 	}
 
 	#handleCollisions() {
-		this.physics.add.collider(this.floor.body, this.player.entity)
+		this.physics.add.collider(this.player.entity, this.level.platforms)
 	}
 
 	#createKeyboardInputs() {
