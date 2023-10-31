@@ -128,11 +128,9 @@ export class Player extends Entity {
 				name: 'drop-kick',
 				whenIsSet: () => {
 					this.speedUp(80)
-					this.weight *= 2
 				},
 				inputControl: () => {
 					if (this.onfloor) {
-						this.reset('weight')
 						this.state.setState(c.PlayerBase.s.idle)
 					}
 				},
@@ -174,7 +172,6 @@ export class Player extends Entity {
 		// VALUES
 
 		this.sprite.setScale(c.PlayerBase.scale)
-		this.weight = c.PlayerBase.weight
 		this.strength = c.PlayerBase.strength
 		this.speed = c.PlayerBase.speed
 		this.holdingWeapon = false

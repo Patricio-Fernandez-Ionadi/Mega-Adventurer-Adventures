@@ -19,14 +19,14 @@ export class OverWorld extends Phaser.Scene {
 			'platforms',
 			this.level.tileset,
 			0,
-			-32
+			-182
 		)
 		// console.log(this.level)
 		// this.physics.add.existing(this.level)
 		this.level.platforms.setCollisionByExclusion(-1, true)
 
 		// Entities
-		new Player(this, { x: relative(5), y: relative(10) })
+		new Player(this, { x: relative(5), y: relative(3) })
 
 		// Objects
 		// this.addFloor()

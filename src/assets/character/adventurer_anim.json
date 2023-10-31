@@ -796,7 +796,7 @@
 			"key": "drop-kick",
 			"type": "frames",
 			"repeat": 0,
-			"frameRate": 3,
+			"frameRate": 6,
 			"frames": [
 				{
 					"key": "adventurer",

@@ -25,9 +25,8 @@ export const PlayerBase = {
 	width: GameInfo.tileSize,
 	height: GameInfo.tileSize,
 	scale: 1,
-	weight: relative(3),
-	speed: relative(8),
-	strength: relative(18),
+	speed: relative(7),
+	strength: relative(12),
 	s: {
 		idle: 'idle',
 		run: 'run',
@@ -44,9 +43,16 @@ export const PlayerBase = {
 	},
 }
 
+let auto16x9 = (size) => {
+	return {
+		width: size * 16,
+		height: size * 9,
+	}
+}
+const screenParam = 0.9
 export const ScreenSize = {
-	width: relative(29),
-	height: relative(18),
+	width: relative(auto16x9(screenParam).width),
+	height: relative(auto16x9(screenParam).height),
 }
 
 export const SceneKeys = {
