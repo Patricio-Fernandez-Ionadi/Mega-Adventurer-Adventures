@@ -1,4 +1,4 @@
-import * as c from '../../utils/index.js'
+import * as global from '../../utils/index.js'
 import { Entity } from '../index.js'
 
 /* ANIMACIONES FALTANTES
@@ -13,20 +13,20 @@ import { Entity } from '../index.js'
 export class Player extends Entity {
 	constructor(scene, pos) {
 		super(scene, pos)
-		this.width = c.PlayerBase.width * 2
-		this.height = c.PlayerBase.height * 2
+		this.width = global.PlayerBase.width * 2
+		this.height = global.PlayerBase.height * 2
 		this.states = {
 			idle: {
-				name: c.PlayerBase.s.idle,
+				name: global.PlayerBase.s.idle,
 				whenIsSet: () => this.stop(),
 				inputControl: (input) => {
 					this.run(input)
 					this.attack(input)
-					if (input.up.isDown) this.state.setState(c.PlayerBase.s.jump)
+					if (input.up.isDown) this.state.setState(global.PlayerBase.s.jump)
 				},
 			},
 			run: {
-				name: c.PlayerBase.s.run,
+				name: global.PlayerBase.s.run,
 				currentFacing: this.facing,
 				whenIsSet: () => this.toggleSpeed(),
 				inputControl: (input) => {
@@ -34,18 +34,21 @@ export class Player extends Entity {
 
 					this.stand(input)
 
-					if (input.down.isDown) this.state.setState(c.PlayerBase.s.slideloop)
-					else if (input.up.isDown) this.state.setState(c.PlayerBase.s.jump)
+					if (input.down.isDown)
+						this.state.setState(global.PlayerBase.s.slideloop)
+					else if (input.up.isDown)
+						this.state.setState(global.PlayerBase.s.jump)
 					this.attack(input)
 
-					if (input.alt.isDown) this.state.setState(c.PlayerBase.s.walk)
-					if (input.shift.isDown) this.state.setState(c.PlayerBase.s.sprint)
+					if (input.alt.isDown) this.state.setState(global.PlayerBase.s.walk)
+					if (input.shift.isDown)
+						this.state.setState(global.PlayerBase.s.sprint)
 
 					this.toggleStateDirection(thisState)
 				},
 			},
 			walk: {
-				name: c.PlayerBase.s.walk,
+				name: global.PlayerBase.s.walk,
 				key: 'alt',
 				currentFacing: this.facing,
 				whenIsSet: () => this.slowDown(50),
@@ -64,7 +67,7 @@ export class Player extends Entity {
 				},
 			},
 			sprint: {
-				name: c.PlayerBase.s.sprint,
+				name: global.PlayerBase.s.sprint,
 				key: 'shift',
 				currentFacing: this.facing,
 				whenIsSet: () => this.speedUp(70, this.speed),
@@ -80,7 +83,7 @@ export class Player extends Entity {
 				},
 			},
 			jump: {
-				name: c.PlayerBase.s.jump,
+				name: global.PlayerBase.s.jump,
 				whenIsSet: () => {
 					let speedWhenJump = this.entity.body.velocity.x * 0.8
 
@@ -94,16 +97,16 @@ export class Player extends Entity {
 					let isMoving = Math.abs(this.entity.body.velocity.x) > 0
 
 					if (this.entity.body.velocity.y > 0)
-						this.state.setState(c.PlayerBase.s.fall)
+						this.state.setState(global.PlayerBase.s.fall)
 					else if (input.space.isDown && isMoving)
-						this.state.setState(c.PlayerBase.s.dropkick)
+						this.state.setState(global.PlayerBase.s.dropkick)
 				},
 			},
 			fall: {
-				name: c.PlayerBase.s.fall,
+				name: global.PlayerBase.s.fall,
 				whenIsSet: () => {},
 				inputControl: () =>
-					this.onfloor && this.state.setState(c.PlayerBase.s.idle),
+					this.onfloor && this.state.setState(global.PlayerBase.s.idle),
 			},
 			slideloop: {
 				name: 'slide-loop',
@@ -119,7 +122,7 @@ export class Player extends Entity {
 				whenIsSet: () => {
 					this.slowDown(30)
 					this.scene.time.delayedCall(200, () => {
-						this.state.setState(c.PlayerBase.s.idle)
+						this.state.setState(global.PlayerBase.s.idle)
 					})
 				},
 				inputControl: () => {},
@@ -131,7 +134,7 @@ export class Player extends Entity {
 				},
 				inputControl: () => {
 					if (this.onfloor) {
-						this.state.setState(c.PlayerBase.s.idle)
+						this.state.setState(global.PlayerBase.s.idle)
 					}
 				},
 			},
@@ -139,7 +142,7 @@ export class Player extends Entity {
 				name: 'atk1-hand',
 				whenIsSet: () => {
 					this.stop()
-					this.delay(800, () => this.state.setState(c.PlayerBase.s.idle))
+					this.delay(800, () => this.state.setState(global.PlayerBase.s.idle))
 				},
 				inputControl: () => {},
 			},
@@ -147,7 +150,7 @@ export class Player extends Entity {
 				name: 'atk2-hand',
 				whenIsSet: () => {
 					this.stop()
-					this.delay(600, () => this.state.setState(c.PlayerBase.s.idle))
+					this.delay(600, () => this.state.setState(global.PlayerBase.s.idle))
 				},
 				inputControl: () => {},
 			},
@@ -155,11 +158,12 @@ export class Player extends Entity {
 				name: 'atk3-hand',
 				whenIsSet: () => {
 					this.stop()
-					this.delay(600, () => this.state.setState(c.PlayerBase.s.idle))
+					this.delay(600, () => this.state.setState(global.PlayerBase.s.idle))
 				},
 				inputControl: () => {},
 			},
 		}
+		this.level = 1
 		this.create()
 	}
 	create() {
@@ -171,9 +175,9 @@ export class Player extends Entity {
 
 		// VALUES
 
-		this.sprite.setScale(c.PlayerBase.scale)
-		this.strength = c.PlayerBase.strength
-		this.speed = c.PlayerBase.speed
+		this.sprite.setScale(global.PlayerBase.scale)
+		this.strength = global.PlayerBase.strength
+		this.speed = global.PlayerBase.speed
 		this.holdingWeapon = false
 
 		// -------------------
@@ -192,8 +196,8 @@ export class Player extends Entity {
 
 		// -------------------
 		// STATE
-		if (!this.onfloor) this.state.setState(c.PlayerBase.s.fall)
-		else this.state.setState(c.PlayerBase.s.idle)
+		if (!this.onfloor) this.state.setState(global.PlayerBase.s.fall)
+		else this.state.setState(global.PlayerBase.s.idle)
 
 		// -------------------
 		this.add.toScene('player')
@@ -214,19 +218,19 @@ export class Player extends Entity {
 	speedUp(percent) {
 		if (this.entity.body.velocity.x !== 0) {
 			this.entity.body.setVelocityX(
-				c.addPercent(percent, this.entity.body.velocity.x)
+				global.addPercent(percent, this.entity.body.velocity.x)
 			)
 		} else {
-			this.entity.body.setVelocityX(c.addPercent(percent, this.speed))
+			this.entity.body.setVelocityX(global.addPercent(percent, this.speed))
 		}
 	}
 	slowDown(percent) {
 		if (this.entity.body.velocity.x !== 0) {
 			this.entity.body.setVelocityX(
-				c.subtractPercent(percent, this.entity.body.velocity.x)
+				global.subtractPercent(percent, this.entity.body.velocity.x)
 			)
 		} else {
-			this.entity.body.setVelocityX(c.subtractPercent(percent, this.speed))
+			this.entity.body.setVelocityX(global.subtractPercent(percent, this.speed))
 		}
 	}
 	delay(time, cb) {
@@ -257,17 +261,17 @@ export class Player extends Entity {
 	}
 	stand(input) {
 		if (input.right.isUp && input.left.isUp)
-			this.state.setState(c.PlayerBase.s.idle)
+			this.state.setState(global.PlayerBase.s.idle)
 	}
 	run(input) {
 		if (input.right.isDown || input.left.isDown) {
-			this.state.setState(c.PlayerBase.s.run)
+			this.state.setState(global.PlayerBase.s.run)
 		}
 	}
 	attack(input) {
-		if (input.q.isDown) this.state.setState(c.PlayerBase.s.atk1hand)
-		else if (input.w.isDown) this.state.setState(c.PlayerBase.s.atk2hand)
-		else if (input.e.isDown) this.state.setState(c.PlayerBase.s.atk3hand)
+		if (input.q.isDown) this.state.setState(global.PlayerBase.s.atk1hand)
+		else if (input.w.isDown) this.state.setState(global.PlayerBase.s.atk2hand)
+		else if (input.e.isDown) this.state.setState(global.PlayerBase.s.atk3hand)
 	}
 	check_slowInJump() {
 		if (!this.onfloor) {
@@ -282,8 +286,8 @@ export class Player extends Entity {
 	}
 
 	reset(prop) {
-		if (c.PlayerBase[prop]) {
-			this[prop] = c.PlayerBase[prop]
+		if (global.PlayerBase[prop]) {
+			this[prop] = global.PlayerBase[prop]
 		} else {
 			console.error(`${prop} no es un valor del objeto PlayerBase`)
 		}

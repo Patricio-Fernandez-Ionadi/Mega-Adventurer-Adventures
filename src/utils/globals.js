@@ -1,9 +1,6 @@
+import { relative } from './helpers.js'
+
 export const tileSize = 16
-
-export function relative(value) {
-	return tileSize * value
-}
-
 export const GameInfo = {
 	version: '0.0.1',
 	title: 'Mega Adventurer Adventures',
@@ -15,7 +12,7 @@ export const GameInfo = {
 		ultra: 100,
 	},
 	background: '#000',
-	tileSize: tileSize,
+	tileSize,
 	physics: {
 		gravity: { y: relative(20), x: 0 },
 	},

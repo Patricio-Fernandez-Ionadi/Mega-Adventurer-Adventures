@@ -1,2 +1,2 @@
 export * from './Menu.js'
-export * from './OverWorld.js'
+export * from './gameWorld/World.js'
