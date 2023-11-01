@@ -2,34 +2,47 @@ import Phaser from 'phaser'
 import { Player } from '../gameObjects/index.js'
 import { ScreenSize, relative } from '../utils/globals.js'
 
-// 5121 collision code
+class Level {
+	constructor(scene) {
+		this.scene = scene
+		this.add = {
+			map: (key) => this.#addMap(key),
+			tileset: (name, image) => this.#addTileset(name, image),
+			layer: (name, x, y) => this.#addLayer(name, x, y),
+		}
+	}
+
+	#addMap(key) {
+		this.map = this.scene.make.tilemap({ key })
+	}
+	#addTileset(name, tileImage) {
+		this.tileset = this.map.addTilesetImage(name, tileImage)
+	}
+
+	#addLayer(name, x, y) {
+		this[name] = this.map.createLayer(name, this.tileset, x, y)
+	}
+}
+
 export class OverWorld extends Phaser.Scene {
 	create() {
 		// World
-		this.physics.world.setBounds(0, 0, ScreenSize.width, ScreenSize.height)
+		this.physics.world.setBounds(0, 0, 960, ScreenSize.height)
 
 		// Levels
-		this.level = {}
-		this.level.map = this.make.tilemap({ key: 'map' })
-		this.level.tileset = this.level.map.addTilesetImage(
-			'maa_caves_test',
-			'level-1-tiles'
-		)
-		this.level.platforms = this.level.map.createLayer(
-			'platforms',
-			this.level.tileset,
-			0,
-			-182
-		)
-		// console.log(this.level)
-		// this.physics.add.existing(this.level)
+		this.level = new Level(this)
+		this.level.step = 1
+		this.level.add.map('map')
+		this.level.add.tileset('maa_caves_test', `level-${this.level.step}-tiles`)
+		this.level.add.layer('platforms', 0, -182)
 		this.level.platforms.setCollisionByExclusion(-1, true)
 
 		// Entities
 		new Player(this, { x: relative(5), y: relative(3) })
 
-		// Objects
-		// this.addFloor()
+		// Cameras
+		this.cameras.main.setBounds(0, 0, 960, ScreenSize.height)
+		this.cameras.main.startFollow(this.player.entity, false, 0.5, 0.5)
 
 		// Collisions
 		this.#handleCollisions()
