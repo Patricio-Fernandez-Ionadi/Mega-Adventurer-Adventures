@@ -20,7 +20,7 @@ export class Menu extends Phaser.Scene {
 	// Menu Interface
 	#menuInterface() {
 		const menuMinX = 100,
-			menuMinY = 160,
+			menuMinY = 250,
 			menuWidth = ScreenSize.width - menuMinX * 2,
 			menuHeight = 150,
 			menuColor = 0x000000,

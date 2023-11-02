@@ -51,3 +51,15 @@ export const SceneKeys = {
 		world: 'world',
 	},
 }
+
+export const Levels = {
+	lvl_1: {
+		width: 960,
+		height: 480,
+		tileset: 'caves_tileset',
+		layers: {
+			floor: 'floor',
+			collision: 'collision',
+		},
+	},
+}
