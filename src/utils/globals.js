@@ -14,7 +14,7 @@ export const GameInfo = {
 	background: '#000',
 	tileSize,
 	physics: {
-		gravity: { y: relative(20), x: 0 },
+		gravity: { y: relative(30), x: 0 },
 	},
 }
 
@@ -22,7 +22,7 @@ export const PlayerBase = {
 	width: GameInfo.tileSize,
 	height: GameInfo.tileSize,
 	speed: relative(7),
-	strength: relative(15),
+	strength: relative(18),
 	s: {
 		idle: 'idle',
 		run: 'run',
