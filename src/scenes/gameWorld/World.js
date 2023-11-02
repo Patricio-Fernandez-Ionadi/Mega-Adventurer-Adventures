@@ -12,7 +12,7 @@ export class OverWorld extends Phaser.Scene {
 		this.physics.world.setBounds(0, 0, 960, 480)
 
 		// Entities
-		new Player(this, { x: relative(5), y: relative(24) })
+		new Player(this, { x: relative(5), y: relative(26) })
 
 		// Level
 		this.level = new Level(this, this.player.level)
@@ -26,6 +26,7 @@ export class OverWorld extends Phaser.Scene {
 		this.cameras.main.setBounds(0, 0, 960, 480)
 		this.cameras.main.startFollow(this.player.entity)
 		this.cameras.main.setFollowOffset(0, 0)
+		this.cameras.main.setZoom(4)
 
 		// Collisions
 		this.#handleCollisions()
