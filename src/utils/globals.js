@@ -23,7 +23,7 @@ export const PlayerBase = {
 	height: GameInfo.tileSize,
 	scale: 1,
 	speed: relative(7),
-	strength: relative(12),
+	strength: relative(15),
 	s: {
 		idle: 'idle',
 		run: 'run',

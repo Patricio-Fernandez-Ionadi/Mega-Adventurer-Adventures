@@ -9,24 +9,23 @@ import { Level } from './Level.js'
 export class OverWorld extends Phaser.Scene {
 	create() {
 		// World
-		this.physics.world.setBounds(0, 0, 960, ScreenSize.height)
+		this.physics.world.setBounds(0, 0, 960, 480)
 
 		// Entities
-		new Player(this, { x: relative(5), y: relative(3) })
+		new Player(this, { x: relative(5), y: relative(24) })
 
-		// Levels
+		// Level
 		this.level = new Level(this, this.player.level)
-		this.level.add.map('map')
-		this.level.add.tileset(
-			'maa_caves_test',
-			`level-${this.level.current}-tiles`
-		)
-		this.level.add.layer('platforms', 0, -182)
-		this.level.platforms.setCollisionByExclusion(-1, true)
+		this.level.add.map('map1')
+		this.level.add.tileset('caves_tileset', `level-${this.level.current}-tiles`)
+		this.level.add.layer('floor', 0, 0)
+		this.level.add.layer('collision', 0, 0, false)
+		this.level.collision.setCollisionByExclusion(-1, true)
 
 		// Cameras
-		this.cameras.main.setBounds(0, 0, 960, ScreenSize.height)
-		this.cameras.main.startFollow(this.player.entity, false, 0.5, 0.5)
+		this.cameras.main.setBounds(0, 0, 960, 480)
+		this.cameras.main.startFollow(this.player.entity)
+		this.cameras.main.setFollowOffset(0, 0)
 
 		// Collisions
 		this.#handleCollisions()
@@ -39,23 +38,8 @@ export class OverWorld extends Phaser.Scene {
 		this.player.update()
 	}
 
-	addFloor() {
-		this.floor = this.add.rectangle(
-			0,
-			ScreenSize.height - relative(3),
-			ScreenSize.width,
-			relative(3)
-			// 0xff0000, 1
-		)
-
-		this.floor.setOrigin(0)
-
-		this.physics.add.existing(this.floor)
-		this.floor.body.setCollideWorldBounds(true)
-	}
-
 	#handleCollisions() {
-		this.physics.add.collider(this.player.entity, this.level.platforms)
+		this.physics.add.collider(this.player.entity, this.level.collision)
 	}
 
 	#createKeyboardInputs() {

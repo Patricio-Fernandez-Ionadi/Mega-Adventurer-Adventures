@@ -12,8 +12,10 @@ dist
 dist-ssr
 *.local
 package-lock.json
+
+# project 
 maa_map.tmx
-maa_test.tmx
+lvl1.tmx
 
 # Editor directories and files
 .vscode/*

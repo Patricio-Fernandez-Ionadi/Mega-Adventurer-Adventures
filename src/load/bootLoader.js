@@ -10,7 +10,7 @@ import playerAnims from '/src/assets/character/adventurer_anim.json'
 import playerImage from '/src/assets/character/adventurer.png'
 
 // Levels
-import tilemap_level1 from '/src/assets/tilemaps/maa_test.json'
+import tilemap_level1 from '/src/assets/tilemaps/lvl1.json'
 import level_1_tiles from '/src/assets/tilesets/maa_caves.png'
 
 export class Bootloader extends Scene {
@@ -20,7 +20,7 @@ export class Bootloader extends Scene {
 
 		// Levels
 		this.load.image('level-1-tiles', level_1_tiles)
-		this.load.tilemapTiledJSON('map', tilemap_level1)
+		this.load.tilemapTiledJSON('map1', tilemap_level1)
 
 		// Character
 		this.load.json('player_anim', playerAnims)
